@@ -1,18 +1,22 @@
 package net.craftoriya.realinjuring.injuringlisteners
 
 import net.craftoriya.realinjuring.injuring.Injuring
-import net.minecraft.world.entity.player.Player
+import org.bukkit.entity.Player
 import org.bukkit.damage.DamageType
+import org.bukkit.entity.Entity
 import org.bukkit.entity.EntityType
 import org.bukkit.event.EventHandler
+import org.bukkit.event.Listener
 import org.bukkit.event.entity.EntityDamageEvent
+import org.bukkit.potion.PotionEffect
 import org.bukkit.util.Vector
 
-class InjuringListener {
+class InjuringListener: Listener {
     @EventHandler
     fun onPlayerDamage(event: EntityDamageEvent){
         if (event.entity.type != EntityType.PLAYER)
             return
+        println(2222)
         when(event.damageSource.damageType){
             DamageType.ARROW -> onArrow(event)
             DamageType.EXPLOSION -> onExplosion(event)
@@ -26,19 +30,17 @@ class InjuringListener {
 
     }
     fun onFall(event: EntityDamageEvent){
-        val fallHigh: Double = (event.damageSource.damageLocation?.let {
-            event.damageSource.sourceLocation?.distance(it)
-        }) ?: return
-
         val player: Player = event.entity as Player
+        val fallDistance: Float = player.fallDistance
         val injuring: Injuring = Injuring(player)
+        println(23423)
         //hardCode
         injuring.brokenBone(event,
             when{
-                fallHigh >= 20 -> 1200
-                fallHigh >= 15 -> 900
-                fallHigh >= 10 -> 600
-                else -> 0
+                fallDistance >= 15f -> 120*20
+                fallDistance >= 13f -> 90*20
+                fallDistance >= 6f -> 60*20
+                else -> return
             }
         )
     }

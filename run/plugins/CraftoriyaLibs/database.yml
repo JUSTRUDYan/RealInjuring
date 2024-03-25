@@ -1,0 +1,10 @@
+min-idle: 10
+max-pool-size: 10
+max-life-time: 1800000
+connection-time-out: 30000
+validation-timeout: 5000
+idle-time-out: 600000
+initialization-fail-timeout: 1
+is-auto-commit: true
+keepalive-time: 0
+driver-class-name: org.postgresql.Driver

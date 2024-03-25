@@ -1,0 +1,48 @@
+[23:29:34] [ServerMain/WARN]: [oshi.driver.windows.perfmon.PerfmonDisabled] Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[23:29:38] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[23:29:40] [ServerMain/INFO]: Loaded 1174 recipes
+[23:29:40] [ServerMain/INFO]: Loaded 1271 advancements
+[23:29:40] [Server thread/INFO]: Starting minecraft server version 1.20.4
+[23:29:40] [Server thread/INFO]: Loading properties
+[23:29:40] [Server thread/INFO]: This server is running Paper version git-Paper-462 (MC: 1.20.4) (Implementing API version 1.20.4-R0.1-SNAPSHOT) (Git: 00fd87a)
+[23:29:41] [Server thread/INFO]: Using 4 threads for Netty based IO
+[23:29:41] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[23:29:41] [Server thread/WARN]: [!] The timings profiler has been enabled but has been scheduled for removal from Paper in the future.
+    We recommend installing the spark profiler as a replacement: https://spark.lucko.me/
+    For more information please visit: https://github.com/PaperMC/Paper/issues/8948
+[23:29:41] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 3 worker threads, and gen parallelism of 3 threads
+[23:29:41] [Server thread/INFO]: Default game type: SURVIVAL
+[23:29:41] [Server thread/INFO]: Generating keypair
+[23:29:41] [Server thread/INFO]: Starting Minecraft server on *:25565
+[23:29:41] [Server thread/INFO]: Using default channel type
+[23:29:41] [Server thread/INFO]: Paper: Using Java compression from Velocity.
+[23:29:41] [Server thread/INFO]: Paper: Using Java cipher from Velocity.
+[23:29:41] [Server thread/INFO]: [RealInjuring] Loading server plugin RealInjuring v1.0-SNAPSHOT
+[23:29:41] [Server thread/INFO]: [CraftoriyaLibs] Loading server plugin CraftoriyaLibs v3.0.5
+[23:29:41] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
+[23:29:41] [Server thread/INFO]: [CraftoriyaLibs] Enabling CraftoriyaLibs v3.0.5
+[23:29:42] [Server thread/INFO]: Preparing level "world"
+[23:29:42] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[23:29:43] [Server thread/INFO]: Time elapsed: 229 ms
+[23:29:43] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[23:29:43] [Server thread/INFO]: Time elapsed: 30 ms
+[23:29:43] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[23:29:43] [Server thread/INFO]: Time elapsed: 31 ms
+[23:29:43] [Server thread/INFO]: [RealInjuring] Enabling RealInjuring v1.0-SNAPSHOT
+[23:29:43] [Server thread/INFO]: [RealInjuring] Hello world!
+[23:29:43] [Server thread/INFO]: Running delayed init tasks
+[23:29:43] [Server thread/INFO]: Done (2.531s)! For help, type "help"
+[23:29:43] [Server thread/INFO]: Timings Reset
+[23:29:45] [User Authenticator #0/INFO]: UUID of player RUDYAN is e752fc10-a82c-4d61-b149-78bba70d2f0f
+[23:29:45] [Server thread/INFO]: RUDYAN joined the game
+[23:29:45] [Server thread/INFO]: RUDYAN[/127.0.0.1:54496] logged in with entity id 193 at ([world]36.31750190867035, 146.0, 0.6479576306893318)
+[23:29:52] [Server thread/INFO]: RUDYAN issued server command: /gamemode creative
+[23:29:52] [Server thread/INFO]: [RUDYAN: Set own game mode to Creative Mode]
+[23:30:16] [Server thread/INFO]: RUDYAN issued server command: /gamemode survival
+[23:30:16] [Server thread/INFO]: [RUDYAN: Set own game mode to Survival Mode]
+[23:30:16] [Server thread/INFO]: 2222
+[23:30:16] [Server thread/INFO]: 23423
+[23:30:19] [Server thread/INFO]: 2222
+[23:30:19] [Server thread/INFO]: 23423
+[23:30:27] [Server thread/INFO]: RUDYAN lost connection: Disconnected
+[23:30:27] [Server thread/INFO]: RUDYAN left the game

@@ -1,12 +1,13 @@
 package net.craftoriya.realinjuring
 
+import net.craftoriya.realinjuring.injuringlisteners.InjuringListener
+import org.bukkit.Bukkit
 import org.bukkit.event.EventHandler
 import org.bukkit.event.player.PlayerJoinEvent
 import org.bukkit.plugin.java.JavaPlugin
 
 
 class RealInjuring : JavaPlugin() {
-    val eventHandler: EventHandler = EventHandler()
 
     override fun onDisable() {
         logger.info("Goodbye world!")
@@ -14,10 +15,6 @@ class RealInjuring : JavaPlugin() {
 
     override fun onEnable() {
         logger.info("Hello world!")
+        Bukkit.getPluginManager().registerEvents(InjuringListener(), this)
     }
-
-    @EventHandler
-    fun onPLayerJoin(event: PlayerJoinEvent){
-    }
-
 }
