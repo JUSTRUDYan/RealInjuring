@@ -1,9 +1,9 @@
 package net.craftoriya.realinjuring.injuringlisteners
 
 import net.craftoriya.realinjuring.injuring.Injuring
+import net.minecraft.world.entity.player.Player
 import org.bukkit.damage.DamageType
 import org.bukkit.entity.EntityType
-import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.entity.EntityDamageEvent
 import org.bukkit.util.Vector

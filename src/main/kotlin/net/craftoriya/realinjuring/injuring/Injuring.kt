@@ -3,8 +3,8 @@ package net.craftoriya.realinjuring.injuring
 import net.minecraft.world.effect.MobEffect
 import net.minecraft.world.effect.MobEffectInstance
 import net.minecraft.world.effect.MobEffects
+import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.alchemy.Potion
-import org.bukkit.entity.Player
 import org.bukkit.event.entity.EntityDamageEvent
 import org.bukkit.potion.PotionEffect
 import kotlin.contracts.Effect
