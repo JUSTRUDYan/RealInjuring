@@ -1,48 +1,99 @@
-[23:29:34] [ServerMain/WARN]: [oshi.driver.windows.perfmon.PerfmonDisabled] Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
-[23:29:38] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
-[23:29:40] [ServerMain/INFO]: Loaded 1174 recipes
-[23:29:40] [ServerMain/INFO]: Loaded 1271 advancements
-[23:29:40] [Server thread/INFO]: Starting minecraft server version 1.20.4
-[23:29:40] [Server thread/INFO]: Loading properties
-[23:29:40] [Server thread/INFO]: This server is running Paper version git-Paper-462 (MC: 1.20.4) (Implementing API version 1.20.4-R0.1-SNAPSHOT) (Git: 00fd87a)
-[23:29:41] [Server thread/INFO]: Using 4 threads for Netty based IO
-[23:29:41] [Server thread/INFO]: Server Ping Player Sample Count: 12
-[23:29:41] [Server thread/WARN]: [!] The timings profiler has been enabled but has been scheduled for removal from Paper in the future.
+[17:08:24] [ServerMain/WARN]: [oshi.driver.windows.perfmon.PerfmonDisabled] Invalid registry value type detected for PerfOS counters. Should be REG_DWORD. Ignoring: HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\PerfOS\Performance\Disable Performance Counters.
+[17:08:28] [ServerMain/INFO]: Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[17:08:29] [ServerMain/INFO]: Loaded 1174 recipes
+[17:08:30] [ServerMain/INFO]: Loaded 1271 advancements
+[17:08:30] [Server thread/INFO]: Starting minecraft server version 1.20.4
+[17:08:30] [Server thread/INFO]: Loading properties
+[17:08:30] [Server thread/INFO]: This server is running Paper version git-Paper-462 (MC: 1.20.4) (Implementing API version 1.20.4-R0.1-SNAPSHOT) (Git: 00fd87a)
+[17:08:30] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[17:08:30] [Server thread/INFO]: Using 4 threads for Netty based IO
+[17:08:30] [Server thread/WARN]: [!] The timings profiler has been enabled but has been scheduled for removal from Paper in the future.
     We recommend installing the spark profiler as a replacement: https://spark.lucko.me/
     For more information please visit: https://github.com/PaperMC/Paper/issues/8948
-[23:29:41] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 3 worker threads, and gen parallelism of 3 threads
-[23:29:41] [Server thread/INFO]: Default game type: SURVIVAL
-[23:29:41] [Server thread/INFO]: Generating keypair
-[23:29:41] [Server thread/INFO]: Starting Minecraft server on *:25565
-[23:29:41] [Server thread/INFO]: Using default channel type
-[23:29:41] [Server thread/INFO]: Paper: Using Java compression from Velocity.
-[23:29:41] [Server thread/INFO]: Paper: Using Java cipher from Velocity.
-[23:29:41] [Server thread/INFO]: [RealInjuring] Loading server plugin RealInjuring v1.0-SNAPSHOT
-[23:29:41] [Server thread/INFO]: [CraftoriyaLibs] Loading server plugin CraftoriyaLibs v3.0.5
-[23:29:41] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
-[23:29:41] [Server thread/INFO]: [CraftoriyaLibs] Enabling CraftoriyaLibs v3.0.5
-[23:29:42] [Server thread/INFO]: Preparing level "world"
-[23:29:42] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
-[23:29:43] [Server thread/INFO]: Time elapsed: 229 ms
-[23:29:43] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
-[23:29:43] [Server thread/INFO]: Time elapsed: 30 ms
-[23:29:43] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
-[23:29:43] [Server thread/INFO]: Time elapsed: 31 ms
-[23:29:43] [Server thread/INFO]: [RealInjuring] Enabling RealInjuring v1.0-SNAPSHOT
-[23:29:43] [Server thread/INFO]: [RealInjuring] Hello world!
-[23:29:43] [Server thread/INFO]: Running delayed init tasks
-[23:29:43] [Server thread/INFO]: Done (2.531s)! For help, type "help"
-[23:29:43] [Server thread/INFO]: Timings Reset
-[23:29:45] [User Authenticator #0/INFO]: UUID of player RUDYAN is e752fc10-a82c-4d61-b149-78bba70d2f0f
-[23:29:45] [Server thread/INFO]: RUDYAN joined the game
-[23:29:45] [Server thread/INFO]: RUDYAN[/127.0.0.1:54496] logged in with entity id 193 at ([world]36.31750190867035, 146.0, 0.6479576306893318)
-[23:29:52] [Server thread/INFO]: RUDYAN issued server command: /gamemode creative
-[23:29:52] [Server thread/INFO]: [RUDYAN: Set own game mode to Creative Mode]
-[23:30:16] [Server thread/INFO]: RUDYAN issued server command: /gamemode survival
-[23:30:16] [Server thread/INFO]: [RUDYAN: Set own game mode to Survival Mode]
-[23:30:16] [Server thread/INFO]: 2222
-[23:30:16] [Server thread/INFO]: 23423
-[23:30:19] [Server thread/INFO]: 2222
-[23:30:19] [Server thread/INFO]: 23423
-[23:30:27] [Server thread/INFO]: RUDYAN lost connection: Disconnected
-[23:30:27] [Server thread/INFO]: RUDYAN left the game
+[17:08:30] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 3 worker threads, and gen parallelism of 3 threads
+[17:08:31] [Server thread/INFO]: Default game type: SURVIVAL
+[17:08:31] [Server thread/INFO]: Generating keypair
+[17:08:31] [Server thread/INFO]: Starting Minecraft server on *:25565
+[17:08:31] [Server thread/INFO]: Using default channel type
+[17:08:31] [Server thread/INFO]: Paper: Using Java compression from Velocity.
+[17:08:31] [Server thread/INFO]: Paper: Using Java cipher from Velocity.
+[17:08:31] [Server thread/INFO]: [RealInjuring] Loading server plugin RealInjuring v1.0-SNAPSHOT
+[17:08:31] [Server thread/INFO]: [CraftoriyaLibs] Loading server plugin CraftoriyaLibs v3.0.5
+[17:08:31] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
+[17:08:31] [Server thread/INFO]: [CraftoriyaLibs] Enabling CraftoriyaLibs v3.0.5
+[17:08:31] [Server thread/INFO]: Preparing level "world"
+[17:08:32] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[17:08:33] [Server thread/INFO]: Time elapsed: 1376 ms
+[17:08:33] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[17:08:33] [Server thread/INFO]: Time elapsed: 34 ms
+[17:08:33] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[17:08:33] [Server thread/INFO]: Time elapsed: 21 ms
+[17:08:33] [Server thread/INFO]: [RealInjuring] Enabling RealInjuring v1.0-SNAPSHOT
+[17:08:33] [Server thread/INFO]: [RealInjuring] Hello world!
+[17:08:33] [Server thread/INFO]: Running delayed init tasks
+[17:08:33] [Server thread/INFO]: Done (3.561s)! For help, type "help"
+[17:08:33] [Server thread/INFO]: Timings Reset
+[17:08:42] [User Authenticator #0/INFO]: UUID of player RUDYAN is e752fc10-a82c-4d61-b149-78bba70d2f0f
+[17:08:42] [Server thread/INFO]: RUDYAN joined the game
+[17:08:42] [Server thread/INFO]: RUDYAN[/127.0.0.1:50723] logged in with entity id 187 at ([world]3.4858063062547333, 144.0, 13.618251541587604)
+[17:08:52] [Server thread/ERROR]: Could not pass event EntityDamageEvent to RealInjuring v1.0-SNAPSHOT
+java.lang.RuntimeException: Failed to load MCCoroutine implementation. Shade mccoroutine-bukkit-core into your plugin.
+	at com.github.shynixn.mccoroutine.bukkit.MCCoroutineKt$mcCoroutine$2.invoke(MCCoroutine.kt:20) ~[RealInjuring-1.0-SNAPSHOT.jar:?]
+	at com.github.shynixn.mccoroutine.bukkit.MCCoroutineKt$mcCoroutine$2.invoke(MCCoroutine.kt:15) ~[RealInjuring-1.0-SNAPSHOT.jar:?]
+	at kotlin.SynchronizedLazyImpl.getValue(LazyJVM.kt:74) ~[CraftoriyaLibs-3.0.5-dev-all.jar:?]
+	at com.github.shynixn.mccoroutine.bukkit.MCCoroutineKt.getMcCoroutine(MCCoroutine.kt:15) ~[RealInjuring-1.0-SNAPSHOT.jar:?]
+	at com.github.shynixn.mccoroutine.bukkit.MCCoroutineKt.getMinecraftDispatcher(MCCoroutine.kt:40) ~[RealInjuring-1.0-SNAPSHOT.jar:?]
+	at net.craftoriya.realinjuring.injuring.PlayerBody.<init>(PlayerBody.kt:58) ~[RealInjuring-1.0-SNAPSHOT.jar:?]
+	at net.craftoriya.realinjuring.injuringlisteners.InjuringListener.onFall(InjuringListener.kt:34) ~[RealInjuring-1.0-SNAPSHOT.jar:?]
+	at net.craftoriya.realinjuring.injuringlisteners.InjuringListener.onPlayerDamage(InjuringListener.kt:22) ~[RealInjuring-1.0-SNAPSHOT.jar:?]
+	at com.destroystokyo.paper.event.executor.asm.generated.GeneratedEventExecutor1.execute(Unknown Source) ~[?:?]
+	at org.bukkit.plugin.EventExecutor$2.execute(EventExecutor.java:77) ~[paper-api-1.20.4-R0.1-SNAPSHOT.jar:?]
+	at co.aikar.timings.TimedEventExecutor.execute(TimedEventExecutor.java:81) ~[paper-api-1.20.4-R0.1-SNAPSHOT.jar:git-Paper-462]
+	at org.bukkit.plugin.RegisteredListener.callEvent(RegisteredListener.java:70) ~[paper-api-1.20.4-R0.1-SNAPSHOT.jar:?]
+	at io.papermc.paper.plugin.manager.PaperEventManager.callEvent(PaperEventManager.java:54) ~[paper-1.20.4.jar:git-Paper-462]
+	at io.papermc.paper.plugin.manager.PaperPluginManagerImpl.callEvent(PaperPluginManagerImpl.java:126) ~[paper-1.20.4.jar:git-Paper-462]
+	at org.bukkit.plugin.SimplePluginManager.callEvent(SimplePluginManager.java:615) ~[paper-api-1.20.4-R0.1-SNAPSHOT.jar:?]
+	at org.bukkit.craftbukkit.v1_20_R3.event.CraftEventFactory.callEvent(CraftEventFactory.java:266) ~[paper-1.20.4.jar:git-Paper-462]
+	at org.bukkit.craftbukkit.v1_20_R3.event.CraftEventFactory.callEntityDamageEvent(CraftEventFactory.java:1202) ~[paper-1.20.4.jar:git-Paper-462]
+	at org.bukkit.craftbukkit.v1_20_R3.event.CraftEventFactory.callEntityDamageEvent(CraftEventFactory.java:1187) ~[paper-1.20.4.jar:git-Paper-462]
+	at org.bukkit.craftbukkit.v1_20_R3.event.CraftEventFactory.handleEntityDamageEvent(CraftEventFactory.java:1177) ~[paper-1.20.4.jar:git-Paper-462]
+	at org.bukkit.craftbukkit.v1_20_R3.event.CraftEventFactory.handleEntityDamageEvent(CraftEventFactory.java:1080) ~[paper-1.20.4.jar:git-Paper-462]
+	at org.bukkit.craftbukkit.v1_20_R3.event.CraftEventFactory.handleLivingEntityDamageEvent(CraftEventFactory.java:1236) ~[paper-1.20.4.jar:git-Paper-462]
+	at net.minecraft.world.entity.LivingEntity.actuallyHurt(LivingEntity.java:2243) ~[?:?]
+	at net.minecraft.world.entity.player.Player.actuallyHurt(Player.java:1063) ~[?:?]
+	at net.minecraft.world.entity.LivingEntity.hurt(LivingEntity.java:1480) ~[?:?]
+	at net.minecraft.world.entity.player.Player.hurt(Player.java:970) ~[?:?]
+	at net.minecraft.server.level.ServerPlayer.hurt(ServerPlayer.java:1135) ~[?:?]
+	at net.minecraft.world.entity.LivingEntity.causeFallDamage(LivingEntity.java:2070) ~[?:?]
+	at net.minecraft.world.entity.player.Player.causeFallDamage(Player.java:1715) ~[?:?]
+	at net.minecraft.world.level.block.Block.fallOn(Block.java:468) ~[paper-1.20.4.jar:git-Paper-462]
+	at net.minecraft.world.entity.Entity.checkFallDamage(Entity.java:1788) ~[paper-1.20.4.jar:git-Paper-462]
+	at net.minecraft.world.entity.LivingEntity.checkFallDamage(LivingEntity.java:381) ~[?:?]
+	at net.minecraft.server.level.ServerPlayer.doCheckFallDamage(ServerPlayer.java:1538) ~[?:?]
+	at net.minecraft.server.network.ServerGamePacketListenerImpl.handleMovePlayer(ServerGamePacketListenerImpl.java:1603) ~[?:?]
+	at net.minecraft.network.protocol.game.ServerboundMovePlayerPacket.handle(ServerboundMovePlayerPacket.java:29) ~[?:?]
+	at net.minecraft.network.protocol.game.ServerboundMovePlayerPacket$Pos.handle(ServerboundMovePlayerPacket.java:66) ~[?:?]
+	at net.minecraft.network.protocol.PacketUtils.lambda$ensureRunningOnSameThread$0(PacketUtils.java:54) ~[?:?]
+	at net.minecraft.server.TickTask.run(TickTask.java:18) ~[paper-1.20.4.jar:git-Paper-462]
+	at net.minecraft.util.thread.BlockableEventLoop.doRunTask(BlockableEventLoop.java:153) ~[?:?]
+	at net.minecraft.util.thread.ReentrantBlockableEventLoop.doRunTask(ReentrantBlockableEventLoop.java:24) ~[?:?]
+	at net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:1465) ~[paper-1.20.4.jar:git-Paper-462]
+	at net.minecraft.server.MinecraftServer.d(MinecraftServer.java:194) ~[paper-1.20.4.jar:git-Paper-462]
+	at net.minecraft.util.thread.BlockableEventLoop.pollTask(BlockableEventLoop.java:126) ~[?:?]
+	at net.minecraft.server.MinecraftServer.pollTaskInternal(MinecraftServer.java:1442) ~[paper-1.20.4.jar:git-Paper-462]
+	at net.minecraft.server.MinecraftServer.pollTask(MinecraftServer.java:1365) ~[paper-1.20.4.jar:git-Paper-462]
+	at net.minecraft.util.thread.BlockableEventLoop.managedBlock(BlockableEventLoop.java:136) ~[?:?]
+	at net.minecraft.server.MinecraftServer.waitUntilNextTick(MinecraftServer.java:1343) ~[paper-1.20.4.jar:git-Paper-462]
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1232) ~[paper-1.20.4.jar:git-Paper-462]
+	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:319) ~[paper-1.20.4.jar:git-Paper-462]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+Caused by: java.lang.ClassNotFoundException: com.github.shynixn.mccoroutine.bukkit.impl.MCCoroutineImpl
+	at io.papermc.paper.plugin.entrypoint.classloader.PaperPluginClassLoader.loadClass(PaperPluginClassLoader.java:142) ~[paper-1.20.4.jar:git-Paper-462]
+	at io.papermc.paper.plugin.entrypoint.classloader.PaperPluginClassLoader.loadClass(PaperPluginClassLoader.java:103) ~[paper-1.20.4.jar:git-Paper-462]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:520) ~[?:?]
+	at java.lang.Class.forName0(Native Method) ~[?:?]
+	at java.lang.Class.forName(Class.java:375) ~[?:?]
+	at com.github.shynixn.mccoroutine.bukkit.MCCoroutineKt$mcCoroutine$2.invoke(MCCoroutine.kt:17) ~[RealInjuring-1.0-SNAPSHOT.jar:?]
+	... 48 more
+[17:08:53] [Server thread/INFO]: RUDYAN lost connection: Disconnected
+[17:08:53] [Server thread/INFO]: RUDYAN left the game

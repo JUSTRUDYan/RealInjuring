@@ -35,9 +35,9 @@ class InjuringListener(
         body.shockAlgorithm.start()
         body.lLeg.brokenBone(event,
             when{
-                fallDistance >= 15f -> 120*20
-                fallDistance >= 13f -> 90*20
-                fallDistance >= 6f -> 60*20
+                fallDistance >= 15f -> 12*20
+                fallDistance >= 13f -> 9*20
+                fallDistance >= 6f -> 2*20
                 else -> return
             }
         )

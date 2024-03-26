@@ -3,6 +3,7 @@
         id("net.minecrell.plugin-yml.paper") version "0.6.0"
         id("xyz.jpenilla.run-paper") version "2.2.2"
         id("io.papermc.paperweight.userdev") version "1.5.11"
+        id("com.github.johnrengelman.shadow") version "8.1.1"
     }
 
     group = "net.craftoriya"
@@ -36,10 +37,17 @@
         }
     }
 
+    tasks.shadowJar {
+        exclude("kotlin/**")
+        mergeServiceFiles()
+    }
+
     dependencies {
         paperweight.paperDevBundle(nmsVersion)
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1-Beta")
-        compileOnly("net.craftoriya:CraftoriyaLibs:3.0.5")
+        compileOnly ("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+        implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1-Beta")
+        implementation ("com.github.shynixn.mccoroutine:mccoroutine-bukkit-api:2.15.0")
+        compileOnly ("net.craftoriya:CraftoriyaLibs:3.0.5")
     }
 
     kotlin {

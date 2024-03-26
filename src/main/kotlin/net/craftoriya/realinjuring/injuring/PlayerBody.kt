@@ -1,5 +1,6 @@
 package net.craftoriya.realinjuring.injuring
 
+import com.github.shynixn.mccoroutine.bukkit.minecraftDispatcher
 import kotlinx.coroutines.*
 import net.craftoriya.lib.actions.queue.ActionsQueue
 import net.craftoriya.lib.bukkit.BukkitSynchronizer
@@ -34,24 +35,27 @@ class PlayerBody(
         action {
             outDelay(Duration.ofSeconds(5))
             onRun {
+                println(1111)
                 shockState = ShockState.SHOCKED
             }
         }
         action {
             outDelay(Duration.ofSeconds(10))
             onRun {
+                println(2222)
                 shockState = ShockState.POST_SHOCKED
             }
         }
         action {
             onRun {
+                println(3333)
                 shockState = ShockState.HEALTHY
             }
         }
     }
 
     init {
-        CoroutineScope(Dispatchers.Default).launch {
+        CoroutineScope(plugin.minecraftDispatcher).launch {
             while (isActive){
                 when (shockState) {
                     ShockState.SHOCKED -> shock()
