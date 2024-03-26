@@ -15,6 +15,6 @@ class RealInjuring : JavaPlugin() {
 
     override fun onEnable() {
         logger.info("Hello world!")
-        Bukkit.getPluginManager().registerEvents(InjuringListener(), this)
+        Bukkit.getPluginManager().registerEvents(InjuringListener(this), this)
     }
 }
