@@ -8,7 +8,7 @@ class LimbInjuries (
     private val body: PlayerBody,
     private val plugin: JavaPlugin,
 ) : TorsoInjuries(player, body, plugin) {
-    override val boneState: BoneState
+    override var boneState: BoneState = BoneState.HEALTHY
         get() = super.boneState
     override fun brokeBone(time: Int) {
         super.brokeBone(time)

@@ -4,11 +4,14 @@ import net.craftoriya.realinjuring.config.InjuryConfig
 import net.craftoriya.realinjuring.injuring.PlayerBody
 import org.bukkit.entity.Player
 import org.bukkit.damage.DamageType
+import org.bukkit.entity.Entity
 import org.bukkit.entity.EntityType
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
+import org.bukkit.event.entity.EntityDamageByEntityEvent
 import org.bukkit.event.entity.EntityDamageEvent
 import org.bukkit.event.player.PlayerJoinEvent
+import org.bukkit.inventory.ItemStack
 import org.bukkit.plugin.java.JavaPlugin
 import java.util.concurrent.ConcurrentHashMap
 import kotlin.random.Random
@@ -28,7 +31,16 @@ class InjuringListener(
             DamageType.FALL -> onFall(event)
         }
     }
-
+    @EventHandler
+    fun onPVPDamage(event: EntityDamageByEntityEvent){
+        if (event.entity.type != EntityType.PLAYER && event.damager.type != EntityType.PLAYER)
+            return
+        val sufferer: Player = event.entity as Player
+        val offender: Player = event.damager as Player
+        when(offender.inventory.itemInMainHand){
+            //TODO
+        }
+    }
     @EventHandler
     fun onJoin(event: PlayerJoinEvent){
         val player: Player = event.player
