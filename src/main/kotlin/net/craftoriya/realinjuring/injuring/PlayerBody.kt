@@ -18,12 +18,12 @@ class PlayerBody(
     injuryConfig: InjuryConfig,
 ) {
     val head: Injuries = Injuries(player, this)
-    val torso: Injuries = Injuries(player, this)
-    val stomach: Injuries = Injuries(player, this)
-    val lHand: Injuries = Injuries(player, this)
-    val rHand: Injuries = Injuries(player, this)
-    val lLeg: Injuries = Injuries(player, this)
-    val rLeg: Injuries = Injuries(player, this)
+    val torso: Injuries = TorsoInjuries(player, this)
+    val stomach: Injuries = TorsoInjuries(player, this)
+    val lHand: Injuries = LimbInjuries(player, this)
+    val rHand: Injuries = LimbInjuries(player, this)
+    val lLeg: Injuries = LimbInjuries(player, this)
+    val rLeg: Injuries = LimbInjuries(player, this)
 
     enum class ShockState {
         HEALTHY,
