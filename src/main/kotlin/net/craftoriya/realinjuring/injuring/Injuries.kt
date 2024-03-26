@@ -4,28 +4,37 @@ import org.bukkit.entity.Player
 import org.bukkit.event.entity.EntityDamageEvent
 import org.bukkit.potion.PotionEffect
 import org.bukkit.potion.PotionEffectType
+import kotlin.random.Random
 
 class Injuries(
-    private val player: Player
+    private val player: Player,
+    private val body: PlayerBody,
 ) {
+    enum class BoneStatus{
+        HEALTHY,
+        SPRAINED,
+        BROKEN,
+        CURED,
+    }
+
+    val boneStatus: BoneStatus = BoneStatus.HEALTHY
+
     var laceration: Boolean = false
     private set
-    fun laceration(event: EntityDamageEvent, time: Int, strength: Float){
+    fun laceration(time: Int, strength: Float){
         laceration = true
     }
-    fun lightBleeding(event: EntityDamageEvent, time: Int){
+    fun lightBleeding(time: Int){
 
     }
-    fun heavyBleeding(event: EntityDamageEvent){
+    fun heavyBleeding(){
 
     }
-    fun burn(event: EntityDamageEvent, time: Int) {
+    fun burn( time: Int) {
 
     }
-    fun brokenBone(event: EntityDamageEvent, time: Int) {
-        val player: Player = event.entity as Player
-        pain(time)
-        //shock(time/10)
+    fun brokenBone(time: Int) {
+        pain(time + time/3)
         player.addPotionEffect(PotionEffect(PotionEffectType.SLOW, time,0))
     }
     private fun pain(time: Int){

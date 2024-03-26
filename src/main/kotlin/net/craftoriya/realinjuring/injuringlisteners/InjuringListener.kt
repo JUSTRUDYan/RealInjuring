@@ -1,5 +1,6 @@
 package net.craftoriya.realinjuring.injuringlisteners
 
+import net.craftoriya.realinjuring.config.InjuryConfig
 import net.craftoriya.realinjuring.injuring.PlayerBody
 import org.bukkit.entity.Player
 import org.bukkit.damage.DamageType
@@ -8,9 +9,11 @@ import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.entity.EntityDamageEvent
 import org.bukkit.plugin.java.JavaPlugin
+import kotlin.random.Random
 
 class InjuringListener(
-    private val plugin: JavaPlugin
+    private val plugin: JavaPlugin,
+    private val injuryConfig: InjuryConfig,
 ): Listener {
     @EventHandler
     fun onPlayerDamage(event: EntityDamageEvent){
@@ -31,15 +34,32 @@ class InjuringListener(
     fun onFall(event: EntityDamageEvent){
         val player: Player = event.entity as Player
         val fallDistance: Float = player.fallDistance
-        val body: PlayerBody = PlayerBody(player, plugin)
+        val body: PlayerBody = PlayerBody(player, plugin, injuryConfig)
         body.shockAlgorithm.start()
-        body.lLeg.brokenBone(event,
-            when{
-                fallDistance >= 15f -> 12*20
-                fallDistance >= 13f -> 9*20
-                fallDistance >= 6f -> 2*20
-                else -> return
+        if(fallDistance >= 15f){
+            body.lLeg.brokenBone((injuryConfig.brokenBoneLvl3/50).toInt())
+            body.rLeg.brokenBone((injuryConfig.brokenBoneLvl3/50).toInt())
+            return
+        } else if (fallDistance >= 5) {
+            if(Random.nextBoolean() == true) {
+                body.lLeg.brokenBone(
+                    when {
+                        fallDistance >= 13f -> (injuryConfig.brokenBoneLvl1 / 50).toInt()
+                        fallDistance >= 6f -> (injuryConfig.brokenBoneLvl2 / 50).toInt()
+                        else -> return
+                    }
+                )
+            }else{
+                body.rLeg.brokenBone(
+                    when {
+                        fallDistance >= 13f -> (injuryConfig.brokenBoneLvl1 / 50).toInt()
+                        fallDistance >= 6f -> (injuryConfig.brokenBoneLvl2 / 50).toInt()
+                        else -> return
+                    }
+                )
             }
-        )
+        } else {
+
+        }
     }
 }
