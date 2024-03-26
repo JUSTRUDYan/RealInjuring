@@ -8,13 +8,16 @@ import org.bukkit.entity.EntityType
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.entity.EntityDamageEvent
+import org.bukkit.event.player.PlayerJoinEvent
 import org.bukkit.plugin.java.JavaPlugin
+import java.util.concurrent.ConcurrentHashMap
 import kotlin.random.Random
 
 class InjuringListener(
     private val plugin: JavaPlugin,
     private val injuryConfig: InjuryConfig,
 ): Listener {
+    val playersBodys: ConcurrentHashMap<Player,PlayerBody> = ConcurrentHashMap()
     @EventHandler
     fun onPlayerDamage(event: EntityDamageEvent){
         if (event.entity.type != EntityType.PLAYER)
@@ -25,6 +28,12 @@ class InjuringListener(
             DamageType.FALL -> onFall(event)
         }
     }
+
+    @EventHandler
+    fun onJoin(event: PlayerJoinEvent){
+        val player: Player = event.player
+        playersBodys[player] = PlayerBody(player, plugin, injuryConfig)
+    }
     fun onArrow(event: EntityDamageEvent){
 
     }
@@ -34,15 +43,16 @@ class InjuringListener(
     fun onFall(event: EntityDamageEvent){
         val player: Player = event.entity as Player
         val fallDistance: Float = player.fallDistance
-        val body: PlayerBody = PlayerBody(player, plugin, injuryConfig)
+        val body: PlayerBody = playersBodys[player] ?: return
+
         body.shockAlgorithm.start()
         if(fallDistance >= 15f){
-            body.lLeg.brokenBone((injuryConfig.brokenBoneLvl3/50).toInt())
-            body.rLeg.brokenBone((injuryConfig.brokenBoneLvl3/50).toInt())
+            body.lLeg.brokeBone((injuryConfig.brokenBoneLvl3/50).toInt())
+            body.rLeg.brokeBone((injuryConfig.brokenBoneLvl3/50).toInt())
             return
         } else if (fallDistance >= 5) {
             if(Random.nextBoolean() == true) {
-                body.lLeg.brokenBone(
+                body.lLeg.brokeBone(
                     when {
                         fallDistance >= 13f -> (injuryConfig.brokenBoneLvl1 / 50).toInt()
                         fallDistance >= 6f -> (injuryConfig.brokenBoneLvl2 / 50).toInt()
@@ -50,7 +60,7 @@ class InjuringListener(
                     }
                 )
             }else{
-                body.rLeg.brokenBone(
+                body.rLeg.brokeBone(
                     when {
                         fallDistance >= 13f -> (injuryConfig.brokenBoneLvl1 / 50).toInt()
                         fallDistance >= 6f -> (injuryConfig.brokenBoneLvl2 / 50).toInt()

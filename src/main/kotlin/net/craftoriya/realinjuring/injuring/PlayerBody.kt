@@ -1,5 +1,6 @@
 package net.craftoriya.realinjuring.injuring
 
+import com.github.shynixn.mccoroutine.bukkit.launch
 import com.github.shynixn.mccoroutine.bukkit.minecraftDispatcher
 import kotlinx.coroutines.*
 import net.craftoriya.lib.actions.queue.ActionsQueue
@@ -14,16 +15,16 @@ import java.time.Duration
 
 class PlayerBody(
     private val player: Player,
-    plugin: JavaPlugin,
+    private val plugin: JavaPlugin,
     injuryConfig: InjuryConfig,
 ) {
-    val head: Injuries = Injuries(player, this)
-    val torso: Injuries = TorsoInjuries(player, this)
-    val stomach: Injuries = TorsoInjuries(player, this)
-    val lHand: Injuries = LimbInjuries(player, this)
-    val rHand: Injuries = LimbInjuries(player, this)
-    val lLeg: Injuries = LimbInjuries(player, this)
-    val rLeg: Injuries = LimbInjuries(player, this)
+    val head = Injuries(player, this, plugin)
+    val torso = TorsoInjuries(player, this, plugin)
+    val stomach = TorsoInjuries(player, this, plugin)
+    val lHand = LimbInjuries(player, this, plugin)
+    val rHand = LimbInjuries(player, this, plugin)
+    val lLeg = LimbInjuries(player, this, plugin)
+    val rLeg = LimbInjuries(player, this, plugin)
 
     enum class ShockState {
         HEALTHY,
@@ -59,39 +60,33 @@ class PlayerBody(
     }
 
     init {
-        CoroutineScope(plugin.minecraftDispatcher).launch {
-            while (isActive){
+        plugin.launch {
+            while (isActive) {
                 when (shockState) {
                     ShockState.SHOCKED -> {
                         shock((injuryConfig.shockingTime / 50).toInt())
                         delay(injuryConfig.shockingTime)
                     }
+
                     ShockState.POST_SHOCKED -> {
+                        println(333)
                         postShock((injuryConfig.postShokingTime / 50).toInt())
                         delay(injuryConfig.postShokingTime)
                     }
-                    else -> continue
+
+                    else -> {}
                 }
-                delay(100)
+                delay(500)
             }
         }
     }
-    private fun shock(time: Int){
+    private suspend fun shock(time: Int){
         player.addPotionEffect(PotionEffect(PotionEffectType.INCREASE_DAMAGE, time, 0))
         player.addPotionEffect(PotionEffect(PotionEffectType.SPEED, time, 0))
         player.addPotionEffect(PotionEffect(PotionEffectType.REGENERATION, time, 0))
     }
-    private fun postShock(time: Int){
+    private suspend fun postShock(time: Int){
         player.addPotionEffect(PotionEffect(PotionEffectType.SLOW_DIGGING, time, 0))
         player.addPotionEffect(PotionEffect(PotionEffectType.HUNGER, time, 0))
-    }
-
-    fun isLeftHandInjured(): Boolean {
-        if(lLeg.laceration) return false
-        return true
-    }
-    fun isRightHandInjured(): Boolean{
-        if(rLeg.laceration) return false
-        return true
     }
 }

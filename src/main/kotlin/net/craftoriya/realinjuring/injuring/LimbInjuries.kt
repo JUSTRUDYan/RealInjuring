@@ -1,17 +1,20 @@
 package net.craftoriya.realinjuring.injuring
 
 import org.bukkit.entity.Player
-import org.bukkit.potion.PotionEffect
-import org.bukkit.potion.PotionEffectType
+import org.bukkit.plugin.java.JavaPlugin
 
 class LimbInjuries (
     private val player: Player,
-    private val body: PlayerBody
-) : TorsoInjuries(player, body) {
-    override val boneStatus: BoneStatus
-        get() = super.boneStatus
-    override fun brokenBone(time: Int) {
-        super.brokenBone(time)
+    private val body: PlayerBody,
+    private val plugin: JavaPlugin,
+) : TorsoInjuries(player, body, plugin) {
+    override val boneState: BoneState
+        get() = super.boneState
+    override fun brokeBone(time: Int) {
+        super.brokeBone(time)
+    }
+    fun sprainBone(time: Int){
+        super.pain(time)
     }
     override fun pain(time: Int) {
         super.pain(time)
@@ -28,7 +31,6 @@ class LimbInjuries (
     override fun burn(time: Int) {
         super.burn(time)
     }
-
     override fun poison(time: Int) {
         super.poison(time)
     }

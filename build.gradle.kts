@@ -1,10 +1,11 @@
-    plugins {
-        kotlin("jvm") version "1.9.0"
-        id("net.minecrell.plugin-yml.paper") version "0.6.0"
-        id("xyz.jpenilla.run-paper") version "2.2.2"
-        id("io.papermc.paperweight.userdev") version "1.5.11"
-        id("com.github.johnrengelman.shadow") version "8.1.1"
-    }
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+plugins {
+    kotlin("jvm") version "1.9.0"
+    id("net.minecrell.plugin-yml.paper") version "0.6.0"
+    id("xyz.jpenilla.run-paper") version "2.2.2"
+    id("io.papermc.paperweight.userdev") version "1.5.11"
+    id("com.github.johnrengelman.shadow") version "8.1.1"
+}
 
     group = "net.craftoriya"
     version = "1.0-SNAPSHOT"
@@ -37,17 +38,21 @@
         }
     }
 
-    tasks.shadowJar {
-        exclude("kotlin/**")
-        mergeServiceFiles()
-    }
-
     dependencies {
         paperweight.paperDevBundle(nmsVersion)
         compileOnly ("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
         implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1-Beta")
+        implementation ("com.github.shynixn.mccoroutine:mccoroutine-bukkit-core:2.15.0")
         implementation ("com.github.shynixn.mccoroutine:mccoroutine-bukkit-api:2.15.0")
         compileOnly ("net.craftoriya:CraftoriyaLibs:3.0.5")
+    }
+
+    tasks.shadowJar {
+        exclude("kotlin/**")
+        mergeServiceFiles()
+    }
+    tasks.build {
+        dependsOn (tasks.shadowJar)
     }
 
     kotlin {
