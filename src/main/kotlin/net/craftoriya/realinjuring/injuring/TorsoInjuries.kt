@@ -1,47 +1,63 @@
 package net.craftoriya.realinjuring.injuring
 
-import net.craftoriya.lib.actions.queue.ActionsQueue
-import net.craftoriya.lib.bukkit.BukkitSynchronizer
+import com.github.shynixn.mccoroutine.bukkit.launch
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.isActive
+import net.craftoriya.realinjuring.config.InjuryConfig
+import net.craftoriya.realinjuring.injuring.TorsoInjuries.BleedingStates.*
 import org.bukkit.entity.Player
 import org.bukkit.plugin.java.JavaPlugin
-import org.bukkit.potion.PotionEffect
-import org.bukkit.potion.PotionEffectType
-import java.time.Duration
 
 open class TorsoInjuries (
     private val player: Player,
     private val body: PlayerBody,
-    private val plugin: JavaPlugin,
-) : Injuries(player, body, plugin) {
-    enum class BoneState{
+    plugin: JavaPlugin,
+    private val injuryConfig: InjuryConfig
+) {
+
+    init {
+        plugin.launch {
+            while (isActive){
+                when{
+                    bleedingState == LIGHT -> {
+                        player.damage(0.2, injuryConfig.BLEEDING_DAMAGE_SOURCE)
+                    }
+                    bleedingState == HEAVY -> {
+                        player.damage(0.35, injuryConfig.BLEEDING_DAMAGE_SOURCE)
+                    }
+                    bleedingState == LACERATION -> {
+                        player.damage(0.5, injuryConfig.BLEEDING_DAMAGE_SOURCE)
+                    }
+                }
+                delay(injuryConfig.DELAY_BETWEEN_DAMAGE)
+            }
+        }
+    }
+    enum class painState{
+        PAIN,
+        SEVER_PAIN,
+        HEALTHY
+    }
+    sealed class BoneStates {
+        object HEALTHY : BoneStates()
+        object SPRAINED : BoneStates()
+        sealed class BROKEN : BoneStates() {
+            object LVL1 : BROKEN()
+            object LVL2 : BROKEN()
+            object LVL3 : BROKEN()
+        }
+        object CURED : BoneStates()
+    }
+    open var boneStates: BoneStates = BoneStates.HEALTHY
+
+    enum class BleedingStates {
         HEALTHY,
-        SPRAINED,
-        BROKEN,
-        CURED,
+        LIGHT,
+        HEAVY,
+        LACERATION,
     }
-    open var boneState: BoneState = BoneState.HEALTHY
-
-    open fun laceration(time: Int, strength: Float){
-
-    }
-    open fun lightBleeding(time: Int){
-
-    }
-    open fun heavyBleeding(){
-
-    }
-    override fun pain(time: Int) {
-        super.pain(time)
-    }
-    open fun brokeBone(time: Int) {
-        pain(time)
-        player.addPotionEffect(PotionEffect(PotionEffectType.SLOW, time,0))
-    }
+    open var bleedingState: BleedingStates = HEALTHY
     open fun burn( time: Int) {
 
     }
-    override fun poison(time: Int) {
-        super.poison(time)
-    }
-
 }

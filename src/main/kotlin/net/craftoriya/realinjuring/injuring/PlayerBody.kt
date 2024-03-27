@@ -1,12 +1,11 @@
 package net.craftoriya.realinjuring.injuring
 
 import com.github.shynixn.mccoroutine.bukkit.launch
-import com.github.shynixn.mccoroutine.bukkit.minecraftDispatcher
 import kotlinx.coroutines.*
 import net.craftoriya.lib.actions.queue.ActionsQueue
 import net.craftoriya.lib.bukkit.BukkitSynchronizer
 import net.craftoriya.realinjuring.config.InjuryConfig
-import net.craftoriya.realinjuring.injuringlisteners.InjuringListener
+import net.craftoriya.realinjuring.injuring.TorsoInjuries.BoneStates.HEALTHY
 import org.bukkit.entity.Player
 import org.bukkit.plugin.java.JavaPlugin
 import org.bukkit.potion.PotionEffect
@@ -18,13 +17,12 @@ class PlayerBody(
     private val plugin: JavaPlugin,
     injuryConfig: InjuryConfig,
 ) {
-    val head = Injuries(player, this, plugin)
-    val torso = TorsoInjuries(player, this, plugin)
-    val stomach = TorsoInjuries(player, this, plugin)
-    val lHand = LimbInjuries(player, this, plugin)
-    val rHand = LimbInjuries(player, this, plugin)
-    val lLeg = LimbInjuries(player, this, plugin)
-    val rLeg = LimbInjuries(player, this, plugin)
+    val torso = TorsoInjuries(player, this, plugin, injuryConfig)
+    val stomach = TorsoInjuries(player, this, plugin, injuryConfig)
+    val lHand = LimbInjuries(player, this, plugin, injuryConfig)
+    val rHand = LimbInjuries(player, this, plugin, injuryConfig)
+    val lLeg = LimbInjuries(player, this, plugin, injuryConfig)
+    val rLeg = LimbInjuries(player, this, plugin, injuryConfig)
 
     enum class ShockState {
         HEALTHY,
@@ -38,14 +36,14 @@ class PlayerBody(
         BukkitSynchronizer(plugin)
     ) {
         action {
-            outDelay(Duration.ofSeconds(5))
+            outDelay(Duration.ofMillis(injuryConfig.SHOCKING_DURATION))
             onRun {
                 println(1111)
                 shockState = ShockState.SHOCKED
             }
         }
         action {
-            outDelay(Duration.ofSeconds(10))
+            outDelay(Duration.ofMillis(injuryConfig.POST_SHOCKING_DURATION))
             onRun {
                 println(2222)
                 shockState = ShockState.POST_SHOCKED
@@ -64,29 +62,38 @@ class PlayerBody(
             while (isActive) {
                 when (shockState) {
                     ShockState.SHOCKED -> {
-                        shock((injuryConfig.shockingTime / 50).toInt())
-                        delay(injuryConfig.shockingTime)
+                        shock()
+                        delay(1000)
                     }
 
                     ShockState.POST_SHOCKED -> {
-                        println(333)
-                        postShock((injuryConfig.postShokingTime / 50).toInt())
-                        delay(injuryConfig.postShokingTime)
+                        postShock()
+                        delay(1000)
                     }
 
-                    else -> {}
+                    ShockState.HEALTHY -> {
+                        delay(1000)
+                    }
                 }
-                delay(500)
             }
         }
     }
-    private suspend fun shock(time: Int){
-        player.addPotionEffect(PotionEffect(PotionEffectType.INCREASE_DAMAGE, time, 0))
-        player.addPotionEffect(PotionEffect(PotionEffectType.SPEED, time, 0))
-        player.addPotionEffect(PotionEffect(PotionEffectType.REGENERATION, time, 0))
+    private fun shock(){
+        player.addPotionEffect(PotionEffect(PotionEffectType.INCREASE_DAMAGE, 20, 0))
+        player.addPotionEffect(PotionEffect(PotionEffectType.SPEED, 20, 0))
+        player.addPotionEffect(PotionEffect(PotionEffectType.REGENERATION, 20, 0))
     }
-    private suspend fun postShock(time: Int){
-        player.addPotionEffect(PotionEffect(PotionEffectType.SLOW_DIGGING, time, 0))
-        player.addPotionEffect(PotionEffect(PotionEffectType.HUNGER, time, 0))
+    private fun postShock(){
+        player.addPotionEffect(PotionEffect(PotionEffectType.SLOW_DIGGING, 20, 0))
+        player.addPotionEffect(PotionEffect(PotionEffectType.HUNGER, 20, 0))
+    }
+    fun isHealthy(): Boolean {
+        return (this.isLegHealthy() && this.isHandHealthy())
+    }
+    fun isLegHealthy(): Boolean{
+        return (lLeg.boneStates == HEALTHY && rLeg.boneStates == HEALTHY)
+    }
+    fun isHandHealthy(): Boolean{
+        return (lHand.boneStates == HEALTHY && rHand.boneStates == HEALTHY)
     }
 }
