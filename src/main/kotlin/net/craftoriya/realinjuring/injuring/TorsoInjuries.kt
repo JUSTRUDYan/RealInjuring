@@ -5,6 +5,8 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import net.craftoriya.realinjuring.config.InjuryConfig
 import net.craftoriya.realinjuring.injuring.TorsoInjuries.BleedingStates.*
+import org.bukkit.damage.DamageSource
+import org.bukkit.damage.DamageType
 import org.bukkit.entity.Player
 import org.bukkit.plugin.java.JavaPlugin
 
@@ -20,13 +22,13 @@ open class TorsoInjuries (
             while (isActive){
                 when{
                     bleedingState == LIGHT -> {
-                        player.damage(0.2, injuryConfig.BLEEDING_DAMAGE_SOURCE)
+                        player.damage(0.2, DamageSource.builder(DamageType.MAGIC).build(),)
                     }
                     bleedingState == HEAVY -> {
-                        player.damage(0.35, injuryConfig.BLEEDING_DAMAGE_SOURCE)
+                        player.damage(0.35, DamageSource.builder(DamageType.MAGIC).build(),)
                     }
                     bleedingState == LACERATION -> {
-                        player.damage(0.5, injuryConfig.BLEEDING_DAMAGE_SOURCE)
+                        player.damage(0.5, DamageSource.builder(DamageType.MAGIC).build(),)
                     }
                 }
                 delay(injuryConfig.DELAY_BETWEEN_DAMAGE)

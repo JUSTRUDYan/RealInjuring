@@ -40,11 +40,12 @@ plugins {
 
     dependencies {
         paperweight.paperDevBundle(nmsVersion)
-        compileOnly ("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+        implementation ("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.50")
         implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1-Beta")
         implementation ("com.github.shynixn.mccoroutine:mccoroutine-bukkit-core:2.15.0")
         implementation ("com.github.shynixn.mccoroutine:mccoroutine-bukkit-api:2.15.0")
         compileOnly ("net.craftoriya:CraftoriyaLibs:3.0.5")
+
     }
 
     tasks.shadowJar {

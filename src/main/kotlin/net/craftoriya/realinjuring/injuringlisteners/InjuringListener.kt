@@ -7,6 +7,7 @@ import net.craftoriya.realinjuring.injuring.PlayerBody
 import net.craftoriya.realinjuring.injuring.TorsoInjuries
 import net.craftoriya.realinjuring.injuring.TorsoInjuries.BoneStates.BROKEN
 import net.craftoriya.realinjuring.injuring.TorsoInjuries.BoneStates.SPRAINED
+import org.bukkit.damage.DamageSource
 import org.bukkit.entity.Player
 import org.bukkit.damage.DamageType
 import org.bukkit.entity.EntityType
@@ -39,7 +40,7 @@ class InjuringListener(
 
     @EventHandler
     fun onPVPDamage(event: EntityDamageByEntityEvent) {
-        if (event.entity.type != EntityType.PLAYER && event.damager.type != EntityType.PLAYER)
+        if (event.entity.type != EntityType.PLAYER || event.damager.type != EntityType.PLAYER)
             return
         val sufferer: Player = event.entity as Player
         val offender: Player = event.damager as Player
@@ -62,7 +63,7 @@ class InjuringListener(
         var legState: TorsoInjuries.BoneStates = leg.boneStates
         when (legState) {
             is SPRAINED -> {
-                player.damage(injuryConfig.SPRAINED_BONE_JUMP_DAMAGE, injuryConfig.JUMP_DAMAGE_SOURCE)
+                player.damage(injuryConfig.SPRAINED_BONE_JUMP_DAMAGE, DamageSource.builder(DamageType.FALL).build())
                 if (Random.nextFloat() <= injuryConfig.SPRAINED_TO_BROKEN_BONE_CHANCE)
                     legState = BROKEN.LVL1
             }
@@ -70,21 +71,21 @@ class InjuringListener(
             is BROKEN -> {
                 when (legState) {
                     is BROKEN.LVL1 -> {
-                        player.damage(injuryConfig.BROKEN_BONE_JUMP_DAMAGE_LVL1, injuryConfig.JUMP_DAMAGE_SOURCE)
+                        player.damage(injuryConfig.BROKEN_BONE_JUMP_DAMAGE_LVL1, DamageSource.builder(DamageType.FALL).build())
                     }
 
                     is BROKEN.LVL2 -> {
-                        player.damage(injuryConfig.BROKEN_BONE_JUMP_DAMAGE_LVL2, injuryConfig.JUMP_DAMAGE_SOURCE)
+                        player.damage(injuryConfig.BROKEN_BONE_JUMP_DAMAGE_LVL2, DamageSource.builder(DamageType.FALL).build())
                     }
 
                     is BROKEN.LVL3 -> {
-                        player.damage(injuryConfig.BROKEN_BONE_JUMP_DAMAGE_LVL3, injuryConfig.JUMP_DAMAGE_SOURCE)
+                        player.damage(injuryConfig.BROKEN_BONE_JUMP_DAMAGE_LVL3, DamageSource.builder(DamageType.FALL).build())
                     }
                 }
             }
 
             is TorsoInjuries.BoneStates.CURED -> {
-                player.damage(injuryConfig.CURED_BONE_JUMP_DAMAGE, injuryConfig.JUMP_DAMAGE_SOURCE)
+                player.damage(injuryConfig.CURED_BONE_JUMP_DAMAGE, DamageSource.builder(DamageType.FALL).build())
                 if (Random.nextFloat() <= injuryConfig.CURED_TO_BROKEN_BONE_CHANCE)
                     legState = BROKEN.LVL1
             }

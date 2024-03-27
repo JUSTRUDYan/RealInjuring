@@ -38,20 +38,17 @@ class PlayerBody(
         action {
             outDelay(Duration.ofMillis(injuryConfig.SHOCKING_DURATION))
             onRun {
-                println(1111)
                 shockState = ShockState.SHOCKED
             }
         }
         action {
             outDelay(Duration.ofMillis(injuryConfig.POST_SHOCKING_DURATION))
             onRun {
-                println(2222)
                 shockState = ShockState.POST_SHOCKED
             }
         }
         action {
             onRun {
-                println(3333)
                 shockState = ShockState.HEALTHY
             }
         }
@@ -79,13 +76,13 @@ class PlayerBody(
         }
     }
     private fun shock(){
-        player.addPotionEffect(PotionEffect(PotionEffectType.INCREASE_DAMAGE, 20, 0))
-        player.addPotionEffect(PotionEffect(PotionEffectType.SPEED, 20, 0))
-        player.addPotionEffect(PotionEffect(PotionEffectType.REGENERATION, 20, 0))
+        player.addPotionEffect(PotionEffect(PotionEffectType.INCREASE_DAMAGE, 23, 0))
+        player.addPotionEffect(PotionEffect(PotionEffectType.SPEED, 23, 0))
+        player.addPotionEffect(PotionEffect(PotionEffectType.REGENERATION, 23, 0))
     }
     private fun postShock(){
-        player.addPotionEffect(PotionEffect(PotionEffectType.SLOW_DIGGING, 20, 0))
-        player.addPotionEffect(PotionEffect(PotionEffectType.HUNGER, 20, 0))
+        player.addPotionEffect(PotionEffect(PotionEffectType.SLOW_DIGGING, 23, 0))
+        player.addPotionEffect(PotionEffect(PotionEffectType.HUNGER, 23, 0))
     }
     fun isHealthy(): Boolean {
         return (this.isLegHealthy() && this.isHandHealthy())

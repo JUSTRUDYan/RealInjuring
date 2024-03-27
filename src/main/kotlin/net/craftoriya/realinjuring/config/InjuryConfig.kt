@@ -21,8 +21,8 @@ final data class InjuryConfig(
     val CURED_TO_BROKEN_BONE_CHANCE: Double = 0.04,
     val SPRAINED_TO_BROKEN_BONE_CHANCE: Double = 0.05,
     val HEALTHY_TO_SPRINED_BONE_CHANCE: Double = 0.01,
-
-    val JUMP_DAMAGE_SOURCE: DamageSource = DamageSource.builder(DamageType.FALL).build(),
+    //FIXME
+    //val JUMP_DAMAGE_SOURCE: DamageSource = DamageSource.builder(DamageType.FALL).build(),
 
     val BROKEN_BONE_JUMP_DAMAGE_LVL1: Double = 0.5,
     val BROKEN_BONE_JUMP_DAMAGE_LVL2: Double = 0.7,
@@ -31,7 +31,7 @@ final data class InjuryConfig(
     val CURED_BONE_JUMP_DAMAGE: Double = 0.5,
 
     /* BLEEDING */
-
-    val BLEEDING_DAMAGE_SOURCE: DamageSource = DamageSource.builder(DamageType.MAGIC).build(),
+    //FIXME
+    //val BLEEDING_DAMAGE_SOURCE: DamageSource = DamageSource.builder(DamageType.MAGIC).build(),
     val DELAY_BETWEEN_DAMAGE: Long = 5 * 1000
 )
